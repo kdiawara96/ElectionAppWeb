@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.kalata{
+	border:1px solid dart;
+	font-size:15px;
+	border-radius:5px;
+	margin-left:20px;
+	padding:8px;
+	font-weight:bold;
+	color:orange;
+}
+.navbar{
+      box-shadow:0px 5px 5px 	#777;
+    }
+	 
+.d-flex{
+ 	display: flex;
+ 	flex-wrap: wrap;
+ 	justify-content: center;
+ }
+	 
+.card {
+    width: calc((100% / 4) - 32px);
+    margin: 16px;
+    height: 13%;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
+}
+		
+.aucun_candidat{
+	
+    text-align: center;
+    margin-top: 15%;
+}
+.nom_prenom{
+	text-align:center;
+}
+ 
+.div_bienvenu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.msg_bienvenu{
+	
+}
+.msg_comment{
+	
+}

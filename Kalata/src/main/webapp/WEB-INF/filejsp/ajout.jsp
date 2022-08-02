@@ -6,6 +6,7 @@
 <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ajouter</title>
+	
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="screen"></link>
 </head>
 <body>
@@ -17,7 +18,17 @@
 		<form method="post" action="ajouter" enctype="multipart/form-data" >
 <!-- 		enctype="multipart/form-data"
  -->			<h3>Ajouter un candidat</h3>
-			
+         
+          		    <%
+		    if(request.getAttribute("error") != null){%>
+		    	<p class="error">${error}
+		    	</p>
+		   <%}%>
+		   <%
+		    if(request.getAttribute("succes") != null){%>
+		    	<p class="succes">${succes}
+		    	</p>
+		   <%}%>
 			<span></span>
 			<input type="text" placeholder="Nom Candidat"  name="nom" required />
 			<input type="text" placeholder="Prénom Candidat" name="prenom" required/>
@@ -25,9 +36,12 @@
 
 			
 			<button>Ajouter</button>
-			
+			<div >
+ 			<p>Voir la liste des <a class="lien_liste" href="<%=request.getContextPath()+"/dashboard"%>">candidats</a> </p>
+ 		</div>
 <!-- 			<a href="">Voir la liste des candidats!</a>
  -->		</form>
+ 		
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">

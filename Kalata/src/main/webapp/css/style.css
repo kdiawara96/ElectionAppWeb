@@ -262,3 +262,15 @@ div img{
 	margin: 0px;
 	font-weight: bold;
 }
+.error{
+	background-color: green; 
+	border-radius: 5px;
+	color: white;
+	padding: 5px;
+	margin: 0px;
+	font-weight: bold;
+}
+.lien_liste{
+	color:blue;
+	text-decoration: underline;
+}

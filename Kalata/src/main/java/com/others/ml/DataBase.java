@@ -40,37 +40,40 @@ public class DataBase {
 
 //	La méthode permettant de créer un candidat
 
-	public void CreerCandidat(Candidat candidat,String fileName) {
+	public void CreerCandidat(Candidat candidat) {
 
 		this.InitialiseConnection();
-         System.out.println(fileName);
 		
-//		variable requette qui envoyera la requette 
-		try {
-			File file = new File("fileName");
-     		FileInputStream input=new FileInputStream(file);
-			
-			
-			PreparedStatement requette = this.connection
-					.prepareStatement("INSERT INTO candidat(id_candidat,nom,prenom,date,image) VALUES(0,?,?,NOW(),?);");
-
 		
-			
-			requette.setString(1, candidat.getNom());
-			requette.setString(2, candidat.getPrenom());
-			requette.setBinaryStream(3,(InputStream)input,(int)file.length());
+//		if(this.existe(candidat.getNom(), candidat.getPrenom())){
+//	
+//		}else {
+//			variable requette qui envoyera la requette 
+			try {
+				
+				
+				PreparedStatement requette = this.connection
+						.prepareStatement("INSERT INTO candidat(id_candidat,nom,prenom,date,image) VALUES(0,?,?,NOW(),?);");
 
-			requette.executeUpdate();
 			
-			requette.close();
-			connection.close();
-			
+				
+				requette.setString(1, candidat.getNom());
+				requette.setString(2, candidat.getPrenom());
+				requette.setString(3, candidat.getImage());
 
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+				requette.executeUpdate();
+				
+				requette.close();
+				connection.close();
+				
+
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
 
-	}
+
+//	}
 
 //	Méthode permettant de retouner la liste des utilisateurs
 
@@ -136,28 +139,28 @@ public class DataBase {
 	}
 
 	// Verification si l'utilisateur est déjà inscrire
-	public boolean existe(String pseudo, String password) {
+	public boolean existe(String nom, String prenom) {
 
 		// creation d'une varable user de type boolean pour verifier si
 
-		boolean user = false;
+		boolean candidat = false;
 
 		// reconnecte la base de données
 		this.InitialiseConnection();
 		try {
 			PreparedStatement requette = this.connection
-					.prepareStatement("SELECT * FROM Candidat WHERE pseudo = ? and password = ?;");
+					.prepareStatement("SELECT * FROM Candidat WHERE nom = ? and prenom = ?;");
 
-			requette.setString(1, pseudo);
-			requette.setString(2, password);
+			requette.setString(1, nom);
+			requette.setString(2, prenom);
 			ResultSet result = requette.executeQuery();
-			user = result.next();
+			candidat = result.next();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
-		return user;
+		return candidat;
 
 	}
 

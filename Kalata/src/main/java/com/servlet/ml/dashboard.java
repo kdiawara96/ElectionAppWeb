@@ -48,16 +48,20 @@ public class dashboard extends HttpServlet {
 	
 	public double pourcent(int valeur){
 		
-		DataBase db =new DataBase();
-		int nbre_vote=0;
+		try {
+			DataBase db =new DataBase();
+			int nbre_vote=0;
 
-		List<Candidat> liste_Candidat = db.ListCandidat();
-		for(Candidat c:liste_Candidat) {
-			nbre_vote += c.getNb_vote();
-	
+			List<Candidat> liste_Candidat = db.ListCandidat();
+			for(Candidat c:liste_Candidat) {
+				nbre_vote += c.getNb_vote();
+		
+			}
+			return (valeur*100)/nbre_vote;
+		}catch(Exception e) {
+			return 0;
 		}
-		System.out.println((valeur*100)/nbre_vote);
-		return (valeur*100)/nbre_vote;
+		
 	}
 	
 	

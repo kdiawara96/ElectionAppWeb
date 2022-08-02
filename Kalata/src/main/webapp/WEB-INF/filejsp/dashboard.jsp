@@ -80,7 +80,7 @@
 			      </i> <% out.print(us.getNom()+ " " + us.getPrenom()); %>
 			   </b>
 			</h4>
-			  <img src="<%=us.getImage()%>" alt="Avatar" style="width:100%; margin-left:0px; margin-right:10px;">
+			  <img src="images/<%=us.getImage()%>" alt="Avatar" style=" height:230px;">
 			<div class="container">
 			
 			

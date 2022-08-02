@@ -80,7 +80,7 @@
 			      </i> <% out.print(us.getNom()+ " " + us.getPrenom()); %>
 			   </b>
 			</h4>
-			  <img src="img/cv.jpg" alt="Avatar" style="width:100%; margin-left:0px; margin-right:10px;">
+			  <img src="images/<%=us.getImage()%>" alt="Avatar" height=230px width=auto>
 			<div class="container">
 			<a class="nav-link text-center" href="Election?id=<%=+us.getId()%>">
 				 <button class="btn btn-success "  style="">Voter</button>
